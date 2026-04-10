@@ -83,6 +83,46 @@ const labsDatabase = {
     ]
 };
 
+// Market Forecast Database (Based on Niche)
+const marketDatabase = {
+    "propulsion": {
+        cagr: "22.1%",
+        insight: "High demand driven by the boom in small satellite launches and deep space missions requiring efficient, next-gen engines.",
+        drivers: ["LEO Constellation Deployment", "Reusable Rocket Development", "Interplanetary Missions"],
+        demand: "Extremely High"
+    },
+    "astrodynamics": {
+        cagr: "18.5%",
+        insight: "Critical skill for mission design, satellite navigation, and space traffic management. Demand is steadily increasing with constellation density.",
+        drivers: ["Space Debris Mitigation", "Satellite Constellation Management", "Cislunar Trajectory Design"],
+        demand: "High"
+    },
+    "robotics": {
+        cagr: "25.8%",
+        insight: "Fueled by on-orbit servicing, lunar construction, and autonomous exploration. One of the fastest-growing sectors.",
+        drivers: ["On-Orbit Assembly & Manufacturing", "Lunar & Mars Rover Missions", "Autonomous Spacecraft Operations"],
+        demand: "Extremely High"
+    },
+    "isru": {
+        cagr: "35.2%",
+        insight: "Projected to be the backbone of the long-term lunar and Martian economy. Currently niche, but has the highest growth potential.",
+        drivers: ["Lunar Ice Mining", "Mars Propellant Production", "Sustainable Off-World Habitats"],
+        demand: "High (Future)"
+    },
+    "materials": {
+        cagr: "15.3%",
+        insight: "Constant demand for lighter, stronger, and more radiation-resistant materials for spacecraft and habitats.",
+        drivers: ["Lightweight Composites", "3D Printing / Additive Manufacturing", "Radiation Shielding"],
+        demand: "Medium-High"
+    },
+    "default": {
+        cagr: "12.1%",
+        insight: "The overall NewSpace economy is growing steadily, with opportunities across a wide range of subsystems and support roles.",
+        drivers: ["General Commercialization of Space", "Downstream Data Applications", "Launch Cost Reduction"],
+        demand: "Medium"
+    }
+};
+
 // Default fallback
 const defaultExportData = exportDatabase["Other"];
 const defaultLabs = labsDatabase["Other"];
@@ -120,6 +160,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const exportData = exportDatabase[nationality] || defaultExportData;
             const matchesData = labsDatabase[targetCountry] || defaultLabs;
             
+            // Find the most relevant market forecast based on niche input
+            const nicheLower = niche.toLowerCase();
+            let marketData = marketDatabase.default;
+            for (const key in marketDatabase) {
+                if (nicheLower.includes(key)) {
+                    marketData = marketDatabase[key];
+                    break;
+                }
+            }
+            
             // 1. Populate Status
             const badge = document.getElementById('status-badge');
             badge.className = `badge ${exportData.status}`;
@@ -140,10 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 matchList.appendChild(li);
             });
             
-            // 3. Populate Forecast
+            // 3. Populate Dashboard Forecast
             document.getElementById('forecast-niche-title').textContent = niche;
-            document.getElementById('growth-val').textContent = exportData.cagr;
-            document.getElementById('forecast-insights').textContent = exportData.insight;
+            document.getElementById('growth-val').textContent = marketData.cagr;
+            document.getElementById('forecast-insights').textContent = marketData.insight;
             
             // 4. Populate Full Lab Matches Tab
             const fullLabMatchesContainer = document.getElementById('full-lab-matches-container');
@@ -159,6 +209,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="btn-primary btn-small">View Opportunities</button>
                 `;
                 fullLabMatchesContainer.appendChild(div);
+            });
+
+            // 5. Populate Full Market Forecast Tab
+            document.getElementById('full-forecast-niche-title').textContent = niche;
+            document.getElementById('full-forecast-cagr').textContent = marketData.cagr;
+            document.getElementById('full-forecast-demand').textContent = marketData.demand;
+            document.getElementById('full-forecast-insight-text').textContent = marketData.insight;
+            const driversList = document.getElementById('full-forecast-drivers-list');
+            driversList.innerHTML = '';
+            marketData.drivers.forEach(driver => {
+                const li = document.createElement('li');
+                li.textContent = driver;
+                driversList.appendChild(li);
             });
 
             // Update Tab Info

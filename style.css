@@ -298,6 +298,48 @@ body {
 .metric-circle {
     width: 80px;
     height: 80px;
+}
+
+/* Forecast Tab Grid */
+.forecast-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.forecast-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.forecast-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.forecast-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.forecast-card .forecast-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.forecast-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.forecast-card ul li {
+    margin-bottom: 8px;
+}
     border-radius: 50%;
     background-color: #eff6ff;
     border: 4px solid var(--primary-color);

@@ -416,8 +416,30 @@
 
             <!-- MARKET FORECAST TAB -->
             <div id="market-forecast-tab" class="tab-pane" style="display: none;">
-                <div class="card">
-                    <h2>Market Forecast details</h2>
+                <div class="card" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h2 style="color: #fff;">5-Year Market Forecast: <span id="full-forecast-niche-title">Your Niche</span></h2>
+                    <p style="color: #ccc;">An analysis of the commercial and academic demand for your specific research area.</p>
+                </div>
+
+                <div class="forecast-grid">
+                    <div class="card forecast-card">
+                        <h3>Projected Growth (5-Yr CAGR)</h3>
+                        <p class="forecast-value" id="full-forecast-cagr">--%</p>
+                    </div>
+                    <div class="card forecast-card">
+                        <h3>Current Talent Demand</h3>
+                        <p class="forecast-value" id="full-forecast-demand">--</p>
+                    </div>
+                    <div class="card forecast-card full-width">
+                        <h3>Key Market Drivers</h3>
+                        <ul id="full-forecast-drivers-list">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                    <div class="card forecast-card full-width">
+                        <h3>Strategic Insight</h3>
+                        <p id="full-forecast-insight-text">--</p>
+                    </div>
                 </div>
             </div>
             
