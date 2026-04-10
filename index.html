@@ -15,14 +15,15 @@
         <nav class="sidebar">
             <div class="logo">
                 <span class="icon">🚀</span>
-                <h2>Space Screening Test</h2>
+                <h2>Space Career</h2>
             </div>
             <ul class="nav-links">
-                <li class="active"><a href="#" data-tab="dashboard">Dashboard</a></li>
-                <li><a href="#" data-tab="export-law-check">Export Law Check</a></li>
-                <li><a href="#" data-tab="lab-matches">Lab Matches</a></li>
-                <li><a href="#" data-tab="market-forecast">Market Forecast</a></li>
-                <li><a href="#" data-tab="settings">Settings</a></li>
+                <li class="active"><a href="#" data-tab="about-tab">About</a></li>
+                <li><a href="#" data-tab="dashboard-tab">Dashboard</a></li>
+                <li><a href="#" data-tab="export-law-check-tab">Export Law Check</a></li>
+                <li><a href="#" data-tab="lab-matches-tab">Lab Matches</a></li>
+                <li><a href="#" data-tab="market-forecast-tab">Market Forecast</a></li>
+                <li><a href="#" data-tab="settings-tab">Settings</a></li>
             </ul>
         </nav>
 
@@ -35,13 +36,27 @@
                 </div>
             </header>
 
-            <div class="content-grid">
+            <!-- ABOUT TAB -->
+            <div id="about-tab" class="tab-pane active" style="display: block;">
+                
+                <section class="card" style="margin-bottom: 30px; background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);">
+                    <h2 style="color: #fff; margin-top: 0; margin-bottom: 15px;">Description</h2>
+                    <p style="color: #eee; line-height: 1.6; margin-bottom: 12px; font-size: 0.95rem;">The global space economy is booming, but there is a massive, invisible barrier preventing it from growing faster: archaic geopolitical export laws. Every year, thousands of brilliant international graduate students waste months applying to aerospace labs and companies, only to be rejected purely because of laws like ITAR or dual-use technology restrictions. Their talent is wasted simply because they don't know where they are legally allowed to work.</p>
+                    <p style="color: #eee; line-height: 1.6; margin-bottom: 12px; font-size: 0.95rem;">Enter the Space Screening Test. It is an AI-driven career and research navigator built specifically for the global space industry. A user simply inputs their nationality, academic background, and specific research niche—like electric propulsion or asteroid mining. Our AI instantly cross-references their profile against complex international export control laws, treaties like the Wassenaar Arrangement, and shifting geopolitical alliances.</p>
+                    <p style="color: #eee; line-height: 1.6; margin-bottom: 0; font-size: 0.95rem;">Instead of hitting dead ends, the user receives a personalized, legally viable career roadmap. We match them directly with specific global university labs, space agencies, and commercial NewSpace startups where they are actually eligible for PhDs, internships, or full-time roles. Furthermore, the platform analyzes real-time economic data to forecast the 5-year market demand for their specific niche, ensuring they are stepping into a growing sector. Essentially, we are taking the legal guesswork out of aerospace recruitment and connecting the world's brightest minds with the organizations that actually have the power to hire them.</p>
+                </section>
+                
+            </div>
+
+            <!-- DASHBOARD TAB -->
+            <div id="dashboard-tab" class="tab-pane" style="display: none;">
+
+                <div class="content-grid">
                 
                 <!-- Left Column: Input Form -->
                 <div class="column">
                     <section class="card input-section">
-                        <h3>Applicant Profile Profile</h3>
-                        <p class="subtitle">Complete your profile to run a legal viability check.</p>
+                            <h3>Applicant Profile</h3>
                         
                         <form id="screening-form">
                             <div class="form-group">
@@ -307,11 +322,11 @@
                                 <label for="target-country">Target Country for Application</label>
                                 <select id="target-country" name="target-country" required>
                                     <option value="">Select country...</option>
+                                    <option value="FR">France</option>
                                     <option value="US">United States</option>
                                     <option value="UK">United Kingdom</option>
                                     <option value="IN">India</option>
                                     <option value="CN">China</option>
-                                    <option value="FR">France</option>
                                     <option value="DE">Germany</option>
                                     <option value="JP">Japan</option>
                                     <option value="Other">Other</option>
@@ -378,6 +393,42 @@
                 </div>
 
             </div>
+            </div> <!-- End Dashboard Tab -->
+
+            <!-- EXPORT LAW CHECK TAB -->
+            <div id="export-law-check-tab" class="tab-pane" style="display: none;">
+                <div class="card" style="margin-bottom: 20px;">
+                    <h2>Export Law Check Details</h2>
+                    <p>Comprehensive export law check constraints and mitigation strategies.</p>
+                </div>
+            </div>
+            
+            <!-- LAB MATCHES TAB -->
+            <div id="lab-matches-tab" class="tab-pane" style="display: none;">
+                <div class="card" style="margin-bottom: 20px; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h2 style="color: #fff;">Expanded Lab Matches (<span id="lab-matches-country-title">Global</span>)</h2>
+                    <p style="color: #ccc;">Discover comprehensive research opportunities based on your target region.</p>
+                </div>
+                <div id="full-lab-matches-container" class="lab-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- MARKET FORECAST TAB -->
+            <div id="market-forecast-tab" class="tab-pane" style="display: none;">
+                <div class="card">
+                    <h2>Market Forecast details</h2>
+                </div>
+            </div>
+            
+            <!-- SETTINGS TAB -->
+            <div id="settings-tab" class="tab-pane" style="display: none;">
+                <div class="card">
+                    <h2>Settings</h2>
+                    <p>Configure your preferences.</p>
+                </div>
+            </div>
+
         </main>
     </div>
     

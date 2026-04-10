@@ -16,11 +16,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-image: url('logo-background.jpg');
-    background-size: cover;
-    background-position: center;
+    background-image: url('Logo.png');
+    background-size: 45vw; /* Sets the logo to roughly half the screen width */
+    background-position: right 5% center; /* Pushes it to the right side */
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: #1e293b; /* Match dark theme for gaps */
     color: var(--text-main);
 }
 
@@ -97,12 +98,13 @@ body {
     margin: 0 0 5px 0;
     font-size: 1.7rem;
     font-weight: 700;
-    color: #0f172a;
+    color: #ffffff;
 }
 
 .top-nav p {
     margin: 0;
-    color: var(--text-muted);
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .content-grid {
@@ -135,6 +137,59 @@ body {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin: 0 0 20px 0;
+}
+
+/* Lab Grid & Card Styles for Tabs */
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.lab-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lab-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.lab-card h3.match-name {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.lab-card p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.lab-card p strong {
+    color: #0f172a;
+}
+
+.lab-card .btn-small {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: #eff6ff;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lab-card .btn-small:hover {
+    background: #dbeafe;
 }
 
 /* Forms */
