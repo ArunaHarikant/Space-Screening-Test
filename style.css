@@ -298,6 +298,14 @@ body {
 .metric-circle {
     width: 80px;
     height: 80px;
+    border-radius: 50%;
+    background-color: #eff6ff;
+    border: 4px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 /* Forecast Tab Grid */
@@ -340,15 +348,52 @@ body {
 .forecast-card ul li {
     margin-bottom: 8px;
 }
-    border-radius: 50%;
-    background-color: #eff6ff;
-    border: 4px solid var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+
+/* Export Law Tab Grid */
+.export-law-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
 }
+
+.export-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.export-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.export-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.export-card .export-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.export-card p {
+    line-height: 1.6;
+}
+
+.export-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.export-card ul li {
+    margin-bottom: 8px;
+}
+
 
 .metric-val { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); }
 .metric-label { font-size: 0.65rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; text-align: center; line-height: 1;}
