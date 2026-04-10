@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Screening Test | Global Aerospace Career Navigator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <span class="icon">🚀</span>
+                <h2>Space Screening</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#">Dashboard</a></li>
+                <li><a href="#">Export Law Check</a></li>
+                <li><a href="#">Lab Matches</a></li>
+                <li><a href="#">Market Forecast</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-title">
+                    <h1>ITAR & Export Policy AI Navigator</h1>
+                    <p>Stop wasting time on legally impossible applications.</p>
+                </div>
+            </header>
+
+            <div class="content-grid">
+                
+                <!-- Left Column: Input Form -->
+                <div class="column">
+                    <section class="card input-section">
+                        <h3>Applicant Profile Profile</h3>
+                        <p class="subtitle">Complete your profile to run a legal viability check.</p>
+                        
+                        <form id="screening-form">
+                            <div class="form-group">
+                                <label for="nationality">Primary Nationality</label>
+                                <select id="nationality" name="nationality" required>
+                                    <option value="">Select country...</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="IN">India</option>
+                                    <option value="CN">China</option>
+                                    <option value="FR">France</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="education">Highest Academic Degree Level</label>
+                                <select id="education" name="education" required>
+                                    <option value="">Select degree...</option>
+                                    <option value="BSc">Bachelor's</option>
+                                    <option value="MSc">Master's</option>
+                                    <option value="PhD">Ph.D.</option>
+                                    <option value="PostDoc">Post-Doctoral</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="niche">Specific Research Niche (e.g. Electric Propulsion)</label>
+                                <input type="text" id="niche" name="niche" placeholder="e.g. Astrodynamics, ISRU, Attitude Control" required>
+                            </div>
+
+                            <button type="submit" class="btn-primary" id="analyze-btn">Run Legal Cross-Reference Scan</button>
+                        </form>
+                    </section>
+                </div>
+
+                <!-- Right Column: Results & Dashboard -->
+                <div class="column">
+                    <!-- Status / Legal Viability -->
+                    <section class="card result-section" id="legal-status" style="display: none;">
+                        <div class="status-header">
+                            <h3>Legal Viability Status</h3>
+                            <span class="badge" id="status-badge">Processing...</span>
+                        </div>
+                        <div class="status-details">
+                            <p><strong>Primary Limitation:</strong> <span id="limitation-text">Analyzing against ITAR Title 22, Wassenaar Arrangement...</span></p>
+                            <p><strong>Approved Zones:</strong> <span id="approved-zones">-</span></p>
+                        </div>
+                    </section>
+
+                    <!-- Lab Matches -->
+                    <section class="card matches-section" id="lab-matches" style="display: none;">
+                        <h3>Eligible Lab & Startup Matches</h3>
+                        <p class="subtitle">Based on your legal parameters, here are places you can legally get hired or funded right now.</p>
+                        <ul class="match-list" id="match-list-ul">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </section>
+
+                    <!-- Market Forecast -->
+                    <section class="card market-section" id="market-forecast" style="display: none;">
+                        <h3>5-Year Niche Forecast: <span id="forecast-niche-title"></span></h3>
+                        <div class="forecast-metric">
+                            <div class="metric-circle" id="growth-circle">
+                                <span class="metric-val" id="growth-val">--%</span>
+                                <span class="metric-label">Projected CAGR</span>
+                            </div>
+                            <div class="forecast-desc">
+                                <p id="forecast-insights">Analyzing sector growth trajectories based on recent NewSpace funding rounds...</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
